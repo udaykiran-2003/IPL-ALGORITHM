@@ -65,6 +65,10 @@ for permutation in range(total_permutations):
     # Simulate outcomes of remaining matches
     for i in range(remaining_matches_count):
         if (1 << i) & permutation:  # If the i-th bit of permutation is set
+            # (1 << i) & permutation: This part checks if the ith bit of permutation is set to 1. It does so by using the bitwise 
+            # left shift operator (<<) to create a bitmask with a single 1 at position i and then performs a bitwise AND operation (&) 
+            # with permutation. If the ith bit of permutationis set, then the condition (1 << i) & permutation evaluates to true, indicating 
+            # that the outcome of the ith match is represented as "Team 2 wins".
             points[remaining_matches[i][1]] += 2  # Team 2 wins
         else:
             points[remaining_matches[i][0]] += 2  # Team 1 wins
